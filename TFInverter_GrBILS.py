@@ -32,12 +32,12 @@ def Main():
 		sendTF(trans, rot, '/ceiling_grid', '/usb_cam2_new')
 		"""
 		try:
-			(trans,rot) = listener.lookupTransform('/GrBILS_grid', '/hd_cam', rospy.Time(0))
+			(trans,rot) = listener.lookupTransform('hd_cam/GrBILS_grid', '/hd_cam', rospy.Time(0))
 		except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
 			continue
 
 		
-		sendTF(trans, rot, '/ceiling_grid', '/hd_cam_new')
+		sendTF(trans, rot, '/GrBILS_grid', '/hd_cam_new')
 		
 if __name__ == '__main__':
 	rospy.init_node('tf_inverter')
